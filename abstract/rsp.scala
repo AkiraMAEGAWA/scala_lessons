@@ -30,17 +30,27 @@ def rsp_comp(YH: Int, pcHand: Int):String = {
 for(x <- 1 to 33)
   println("")
 
+println("***********************************************")
+
 for(i <- 0 to ARRAY_LENGTH - 1){
   numArray(i) = r.nextInt(3) + 1
-/* ---you can use tricks---
- 
-  if(i % 5 == 0)
-    println(toHand(numArray(i)))
-  else
-    print(toHand(numArray(i)) + ": ")
 
-*/
+
+// ---you can use tricks---
+  if(!args.isEmpty){
+    if(i != 0 && i % 5 == 0)
+      println(toHand(numArray(i)))
+    else
+      print(toHand(numArray(i)) + ": ")
+  }
+// ---tricks end-----------
 }
+  if(!args.isEmpty){
+    for(i <- 0 to 7) println("")
+    println("Oh!!! You are a great cheater!!!")
+    for(i <- 0 to 7) println("")
+  }
+println("***********************************************")
 
 val sc = new java.util.Scanner(System.in) 
 for(i <- 0 to ARRAY_LENGTH - 1){
@@ -54,7 +64,7 @@ for(i <- 0 to ARRAY_LENGTH - 1){
   if(toHand(yourhand) != "null"){
     println("yourhand: " + toHand(yourhand))
     println("pchand  : " + toHand(numArray(i))) 
-    print("--------------                                       ")
+    print("--------------------------------------                ")
 	  println(rsp_comp(yourhand, numArray(i)))
  }
   else
